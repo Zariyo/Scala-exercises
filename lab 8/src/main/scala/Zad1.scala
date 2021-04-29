@@ -4,12 +4,12 @@ object Zad1 {
     val linie = io.Source
       .fromResource("liczby.txt")
       .getLines.toList
-    println(linie)
-    def sumaniepar(arg: List[String], step: Int): String = {
-      if (step>arg) suma
-      val suma: String = arg.reduceLeft(_ % step + _ % step)
-      sumaniepar(arg, step*10)
+    val nieMalejace = linie.filter(x => x.toList.sortWith( _ < _ ).mkString.equals(x))
+    print(nieMalejace)
+    println("###")
+    val odp = nieMalejace.filter(x => x.toList.foldLeft(0)((m,n)=>(m+n.toInt))%2==1)
+    println(odp)
     }
-  }
+
 
 }
